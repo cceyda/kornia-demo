@@ -30,7 +30,7 @@ image = F.pil_to_tensor(im).float() / 255
 
 
 # batch size is just for show
-batch_size = st.sidebar.slider("batch_size", min_value=8, max_value=128)
+batch_size = st.sidebar.slider("batch_size", min_value=4, max_value=16,value=8)
 gpu = st.sidebar.checkbox("Use GPU!", value=True)
 if not gpu:
     st.sidebar.markdown("With Kornia you do ops on the GPU!")
