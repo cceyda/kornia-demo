@@ -17,7 +17,7 @@ def set_transform(content):
 
 st.markdown("# Kornia Augmentations Demo")
 st.sidebar.markdown(
-    "[Kornia](https://github.com/kornia/korniasidebar.) is a *differentiable* computer vision library for PyTorch."
+    "[Kornia](https://github.com/kornia/kornia) is a *differentiable* computer vision library for PyTorch."
 )
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
