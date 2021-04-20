@@ -1,5 +1,5 @@
 streamlit~=0.80
-kornia~=0.4.2
+kornia~=0.5.0
 torch~=1.7.1
 torchvision~=0.8.2
 Pillow
