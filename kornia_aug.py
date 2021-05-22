@@ -12,7 +12,11 @@ IS_LOCAL = False #Change this
 @st.cache(suppress_st_warning=True)
 def set_transform(content):
     #     st.write("set transform")
-    transform = eval(content, {"kornia": kornia, "nn": nn}, None)
+    try:
+        transform = eval(content, {"kornia": kornia, "nn": nn}, None)
+    except Exception as e:
+        st.write(f"There was an error: {e}")
+        transform = nn.Sequential()
     return transform
 
 st.markdown("# Kornia Augmentations Demo")
@@ -108,14 +112,22 @@ image_batch = torch.stack(batch_size * [image])
 
 
 image_batch.to(device)
-transformeds = transform(image_batch)
+transformeds = None
+try:
+    transformeds = transform(image_batch)
+except Exception as e:
+    st.write(f"There was an error: {e}")
+    
+
+
 
 cols = st.beta_columns(4)
 
 # st.image(F.to_pil_image(make_grid(transformeds)))
-for i, x in enumerate(transformeds):
-    i = i % 4
-    cols[i].image(F.to_pil_image(x), use_column_width=True)
+if transformeds:
+    for i, x in enumerate(transformeds):
+        i = i % 4
+        cols[i].image(F.to_pil_image(x), use_column_width=True)
 
 st.markdown(
     "There are a lot more transformations available: [Documentation](https://kornia.readthedocs.io/en/latest/augmentation.module.html)"
