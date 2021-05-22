@@ -124,7 +124,7 @@ except Exception as e:
 cols = st.beta_columns(4)
 
 # st.image(F.to_pil_image(make_grid(transformeds)))
-if transformeds:
+if transformeds is not None:
     for i, x in enumerate(transformeds):
         i = i % 4
         cols[i].image(F.to_pil_image(x), use_column_width=True)
