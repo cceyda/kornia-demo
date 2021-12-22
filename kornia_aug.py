@@ -121,7 +121,7 @@ except Exception as e:
 
 
 
-cols = st.beta_columns(4)
+cols = st.columns(4)
 
 # st.image(F.to_pil_image(make_grid(transformeds)))
 if transformeds is not None:
