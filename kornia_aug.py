@@ -42,7 +42,9 @@ if not gpu:
 else:
     if not IS_LOCAL:
         st.sidebar.markdown("(GPU Not available on hosted demo, try on your local!)")
-        st.sidebar.markdown("Clone Demo [Code](https://github.com/cceyda/kornia-demo)")
+        # Credits   
+        st.sidebar.caption("Demo made by [Ceyda Cinarel](https://linktr.ee/ceydai)")
+        st.sidebar.markdown("Clone [Code](https://github.com/cceyda/kornia-demo)")
         device = torch.device("cpu")
     else:
         st.sidebar.markdown("Running on GPU~")
@@ -137,3 +139,4 @@ st.markdown(
 )
 # if process:
 #     pass
+
